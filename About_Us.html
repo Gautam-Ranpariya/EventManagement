@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Baloo+Bhai+2:wght@500&family=Baloo+Tammudu+2&family=Balsamiq+Sans&family=Dosis:wght@500&family=Inconsolata:wght@300&family=Josefin+Sans:wght@500&family=Tiro+Bangla:ital@0;1&family=Ubuntu&family=Work+Sans&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="aset/js/jquery-3.6.3.min.js"></script>
+
+    <link rel="stylesheet" href="./icon.css">
+    <script src="./icon.js"></script>
+
+    <title>About_Us Document</title>
+</head>
+
+<!-- Ajax through json -->
+<script>
+    $(document).ready(function () {
+        $.ajax({
+            method: "GET",
+            url: "About.xml",
+            dataType: "xml",
+            success: func
+        })
+    })
+    function func(xml) {
+        $(xml).find("data").each(function () {
+            let image1 = $(this).find("img1").text();
+            let image2 = $(this).find("img2").text();
+            let image3 = $(this).find("img3").text();
+            let image4 = $(this).find("img4").text();
+
+            let details1 = $(this).find("Ap1").text();
+            let details2 = $(this).find("Ap2").text();
+            let details3 = $(this).find("Ap3").text();
+            $("#A-img").append(
+                ` <img src="${image1}" alt="About-Us" height="500px" width="100%" class="d-block w-100"> `
+            )
+            $("#S1-img").append(
+                `<img src="${image2}" alt="Employee-1" width="100%" height="480px" class="d-block w-100"> `
+            )
+            $("#S2-img").append(
+                `<img src="${image3}" alt="Employee-2" width="100%" height="480px" class="d-block w-100"> `
+            )
+            $("#S3-img").append(
+                ` <img src="${image4}" alt="Employee-3" width="100%" height="480px" class="d-block w-100"> `
+            )
+            $("#Ap1").append(
+                ` <p>${details1}</p> `
+            )
+            $("#Ap2").append(
+                ` <p>${details2}</p> `
+            )
+            $("#Ap3").append(
+                ` <p>${details3}</p> `
+            )
+        })
+    }
+</script>
+
+<body>
+    <!-- ----------- Navigation Bar----------- -->
+    <header>
+        <nav class="navbar navbar-expands-sm bg-dark justify-content-around">
+            <div class="navbar-logo-div">
+                <a class="navbar-brand" href="#">
+                    <img src="./aset/images/Events-Logo.png" alt="Logo" class="Eventive-logo" width="130px"
+                        height="90px" data-aos="flip-right">
+                </a>
+            </div>
+            <div class="navbar-list-div" id="div-li">
+                <ul class="nav navbar-nav flex-row justify-content-evenly">
+                    <li class="nav-li p-4"><a class="nav-link fs-4 text-decoration-none link-text"
+                            href="./index.html">Home</a></li>
+                    <li class="nav-li p-4"><a class="nav-link fs-4 text-decoration-none link-text current-pg"
+                            href="./About_Us.html">About Us</a>
+                    </li>
+                    <li class="nav-li p-4"><a class="nav-link fs-4 text-decoration-none link-text"
+                            href="./Services.html">Services</a>
+                    </li>
+                    <li class="nav-li p-4"><a class="nav-link fs-4 text-decoration-none link-text"
+                            href="./Events.html">Events</a>
+                    </li>
+                    <li class="nav-li p-4"><a class="nav-link fs-4 text-decoration-none link-text"
+                            href="./Contact_Us.html">Contact
+                            Us</a></li>
+                </ul>
+            </div>
+            <div class="navbar-user-div d-flex justify-content-evenly" id="div-log-sing">
+                <a href="./Singup.html" type="button"
+                    class="sing-in-nav p-1 fs-5 mx-2 text-decoration-none text-white">Sign Up</a>
+                <a href="./Login.html" type="button"
+                    class="login-nav px-2 py-1 fs-5 mx-2 text-decoration-none text-white">Login</a></li>
+            </div>
+        </nav>
+    </header>
+
+    <!-- ----------- About-Us page Bar----------- -->
+    <section id="About-Us">
+        <div class="container-fluid mt-5 py-2">
+            <div class="container-fluid">
+                <h1 class="heading"><b><span class="title">About</span> Us</b></h1>
+            </div>
+            <div class="container-fluid row mt-4 d-flex">
+                <div class="container col-md-6 image" id="A-img"></div>
+                <div class="container content col-md-6">
+                    <h3 class="py-1 text-center text-dark">we will give a very special celebration for you</h3>
+
+                    <p class="text-dark fs-4 py-1" id="Ap1"></p>
+
+                    <p class="text-dark fs-4 py-1" id="Ap2"></p>
+
+                    <b><a href="./Contact_Us.html" class="btn btn-dark px-5 text-decoration-none btn-contact">Contac
+                            Us
+                        </a></b>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid mt-5">
+            <p class=" fs-4 p-4 text-wrap text-center text-dark" id="Ap3"></p>
+        </div>
+    </section>
+
+    <!-- ----------- Our-Staff page Bar----------- -->
+    <section id="Our Staff">
+        <div class="container-fluid my-2 py-2">
+            <div class="container-fluid mt-2 mb-4">
+                <h1 class="heading"><b><span class="title">Our</span> Staff</b></h1>
+            </div>
+            <div class="container-fluid div-staff row my-3">
+                <div class="col-md-3 Manager1">
+                    <div class="container staff-img-div">
+                        <div id="S1-img"></div>
+                        <div class="container div-content-staff" id="M-1">
+                            <div class="container div-text-1 pb-2 ">
+                                <h1 class="staff-text">Sofia</h1>
+                                <h5 class="text-warning">(Event Manager)</h5>
+                                <p class="text-white text-center"><b>(+91)<span class=" mx-1">9*********</span></b></p>
+                                <div class="d-flex justify-content-evenly">
+                                    <div class="div-social-icon">
+                                        <a href="http://facebook.com"><i
+                                                class="fab fa-facebook-f text-white fs-4 my-1"></i></a>
+                                    </div>
+                                    <div class="div-social-icon">
+                                        <a href="http://twitter.com" class="icon-i"><i
+                                                class="fab fa-twitter text-white fs-3 my-1"></i></a>
+                                    </div>
+                                    <div class="div-social-icon">
+                                        <a href="https://instagram.com/" class="icon-i"><i
+                                                class="fab fa-instagram text-white fs-3 my-1"></i></a>
+                                    </div>
+                                    <div class="div-social-icon">
+                                        <a href="http://linkedin.com" class="icon-i"><i
+                                                class="fab fa-linkedin text-white fs-3 my-1"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 Manager2">
+                    <div class="container staff-img-div m-1">
+                        <div id="S2-img"></div>
+                        <div class="container div-content-staff" id="M-2">
+                            <div class="container div-text-2 pb-1">
+                                <h1 class="staff-text">Oliver</h1>
+                                <h4 class="text-warning">(Manager)</h4>
+                                <p class="text-white text-center"><b>(+91)<span class=" mx-1">9*********</span></b></p>
+                                <div class="d-flex justify-content-evenly">
+                                    <div class="div-social-icon">
+                                        <a href="http://facebook.com"><i
+                                                class="fab fa-facebook-f text-white fs-4 my-1"></i></a>
+                                    </div>
+                                    <div class="div-social-icon">
+                                        <a href="http://twitter.com" class="icon-i"><i
+                                                class="fab fa-twitter text-white fs-3 my-1"></i></a>
+                                    </div>
+                                    <div class="div-social-icon">
+                                        <a href="https://instagram.com/" class="icon-i"><i
+                                                class="fab fa-instagram text-white fs-3 my-1"></i></a>
+                                    </div>
+                                    <div class="div-social-icon">
+                                        <a href="http://linkedin.com" class="icon-i"><i
+                                                class="fab fa-linkedin text-white fs-3 my-1"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 Manager3">
+                    <div class="container staff-img-div m-1">
+                        <div id="S3-img"></div>
+                        <div class="container div-content-staff" id="M-3">
+                            <div class="container div-text-1 pb-2">
+                                <h1 class="staff-text">Millie</h1>
+                                <h5 class="text-warning">(Event Manager)</h5>
+                                <p class="text-white text-center"><b>(+91)<span class=" mx-1">9*********</span></b></p>
+                                <div class="d-flex justify-content-evenly">
+                                    <div class="div-social-icon">
+                                        <a href="http://facebook.com"><i
+                                                class="fab fa-facebook-f text-white fs-4 my-1"></i></a>
+                                    </div>
+                                    <div class="div-social-icon">
+                                        <a href="http://twitter.com" class="icon-i"><i
+                                                class="fab fa-twitter text-white fs-3 my-1"></i></a>
+                                    </div>
+                                    <div class="div-social-icon">
+                                        <a href="https://instagram.com/" class="icon-i"><i
+                                                class="fab fa-instagram text-white fs-3 my-1"></i></a>
+                                    </div>
+                                    <div class="div-social-icon">
+                                        <a href="http://linkedin.com" class="icon-i"><i
+                                                class="fab fa-linkedin text-white fs-3 my-1"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ----------- Bottom Bar----------- -->
+    <section class="footer" id="footer">
+        <div class="box-container d-flex my-5 justify-content-evenly">
+            <div class="box">
+                <h2 class="py-2 text-primary">Branches</h2>
+                <a href="#"> <i class="fas fa-map-marker-alt"></i> mumbai </a>
+                <a href="#"> <i class="fas fa-map-marker-alt"></i> jogeshwari </a>
+                <a href="#"> <i class="fas fa-map-marker-alt"></i> goregaon </a>
+                <a href="#"> <i class="fas fa-map-marker-alt"></i> navi mumbai </a>
+                <a href="#"> <i class="fas fa-map-marker-alt"></i> andheri </a>
+            </div>
+            <div class="box">
+                <h2 class="py-2 text-primary">Quick links</h2>
+                <a href="./index.html"> <i class="fas fa-arrow-right"></i> home </a>
+                <a href="./About_Us.html"><i class="fas fa-arrow-right"></i> about </a>
+                <a href="./Services.html"><i class="fas fa-arrow-right"></i> service </a>
+                <a href="./Events.html"> <i class="fas fa-arrow-right"></i> event </a>
+                <a href="./Contact_Us.html"><i class="fas fa-arrow-right"></i> contact </a>
+            </div>
+            <div class="box">
+                <h2 class="py-2 text-primary">Contact info</h2>
+                <a href="#"> <i class="fas fa-phone"></i> +507-475-6094</a>
+                <a href="#"> <i class="fas fa-phone"></i> +111-222-3333 </a>
+                <a href="#"> <i class="fas fa-envelope"></i> sofia15@gmail.com </a>
+                <a href="#"> <i class="fas fa-envelope"></i> oliver23@gmail.com </a>
+                <a href="#"> <i class="fas fa-map-marker-alt"></i> mumbai, india - 400104 </a>
+            </div>
+            <div class="box">
+                <h2 class="py-2 text-primary">Follow us</h2>
+                <a href="http://facebook.com"> <i class="fab fa-facebook-f"></i> facebook </a>
+                <a href="http://twitter.com"> <i class="fab fa-twitter"></i> twitter </a>
+                <a href="https://instagram.com/"> <i class="fab fa-instagram"></i> instagram </a>
+                <a href="http://linkedin.com"> <i class="fab fa-linkedin"></i> linkedin </a>
+            </div>
+        </div>
+        <div class="credit p-4 "> created by <span>Gautam Ranpariya</span> | all rights reserved </div>
+    </section>
+
+</body>
+
+</html>
